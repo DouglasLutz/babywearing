@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include Deactivable
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -26,6 +27,10 @@ class User < ApplicationRecord
       end
     end
   end
+
+  # def status
+  #   deactivated? "Inactive":"Active"
+  # end
 
   private
 
