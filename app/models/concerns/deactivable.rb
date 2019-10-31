@@ -20,4 +20,8 @@ module Deactivable
   def activate
     update deactivated_at: nil
   end
+
+  def activated?
+    deactivated_at.nil?
+  end
 end

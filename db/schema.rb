@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_135203) do
     t.string "postal_code", null: false
     t.string "phone_number", null: false
     t.datetime "deactivated_at"
+    t.index ["deactivated_at"], name: "index_users_on_deactivated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -7,7 +7,7 @@
     <th>Phone Number</th>
     <th>Join Date</th>
     <th>Status</th>
-    <th>Change Status</th>
+    <th colspan="1"></th>
   </tr>
 
   <% @users.each do |user| %>
@@ -19,10 +19,10 @@
 
         <% if user.deactivated? %>
         <td> Inactive </td>
-        <td> <%= link_to "Activate User", deactivate_index_path(id: user.id), method: :post, data: { confirm: "Are you sure you want to Activate this user?" } %> </td>
+        <td> <%= link_to "Activate", deactivate_index_path(id: user.id), method: :post, data: { confirm: "Are you sure you want to Activate this user?" } %> </td>
         <% else %>
           <td> Active </td>
-          <td><%= link_to "Deactivate User", deactivate_index_path(id: user.id), method: :post, data: { confirm: "Are you sure you want to change this user to Inactive?" } %></td>
+          <td><%= link_to "Deactivate", deactivate_index_path(id: user.id), method: :post, data: { confirm: "Are you sure you want to change this user to Inactive?" } %></td>
         <% end %>
       <% end %>
     </tr>
