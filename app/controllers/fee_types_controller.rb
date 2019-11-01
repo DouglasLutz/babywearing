@@ -17,7 +17,7 @@ class FeeTypesController < ApplicationController
 
   # GET /fee_types/new
   def new
-    @fee_type = FeeType.new
+    @fee_type = authorize FeeType.new
   end
 
   # GET /fee_types/1/edit
@@ -27,7 +27,7 @@ class FeeTypesController < ApplicationController
   # POST /fee_types
   # POST /fee_types.json
   def create
-    @fee_type = FeeType.new(fee_type_params)
+    @fee_type = authorize FeeType.new(fee_type_params)
 
     respond_to do |format|
       if @fee_type.save
@@ -43,6 +43,8 @@ class FeeTypesController < ApplicationController
   # PATCH/PUT /fee_types/1
   # PATCH/PUT /fee_types/1.json
   def update
+    authorize @fee_type
+
     respond_to do |format|
       if @fee_type.update(fee_type_params)
         format.html { redirect_to @fee_type, notice: 'Fee type was successfully updated.' }
@@ -57,10 +59,13 @@ class FeeTypesController < ApplicationController
   # DELETE /fee_types/1
   # DELETE /fee_types/1.json
   def destroy
-    @fee_type.destroy
-    respond_to do |format|
-      format.html { redirect_to fee_types_url, notice: 'Fee type was successfully destroyed.' }
-      format.json { head :no_content }
+    authorize @fee_type
+    
+    if @fee_type.destroy
+      respond_to do |format|
+        format.html { redirect_to fee_types_url, alert: 'Fee type was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

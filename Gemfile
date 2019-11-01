@@ -69,9 +69,12 @@ group :test do
   gem 'rspec-rails', '~> 3.8'
   # add simpleCov for Code Climate test coverage visibility
   gem 'simplecov', require: false
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '>= 4.7.1'
 gem 'pundit'
+gem 'rubocop'
+gem 'rubocop-rspec'
