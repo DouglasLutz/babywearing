@@ -17,7 +17,6 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
-
 # For font-awesome icons
 gem "font-awesome-rails"
 
