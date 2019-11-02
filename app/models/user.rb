@@ -28,10 +28,6 @@ class User < ApplicationRecord
     end
   end
 
-  # def status
-  #   deactivated? "Inactive":"Active"
-  # end
-
   private
 
   def send_welcome_email
