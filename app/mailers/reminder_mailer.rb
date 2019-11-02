@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReminderMailer < ApplicationMailer
   def overdue_email(user, carrier_name, current_location, due_date)
     @user = user
@@ -14,8 +16,8 @@ class ReminderMailer < ApplicationMailer
     @carrier_name = carrier_name
     @current_location = current_location
     mail(to: @user.email, subject: 'Carrier Return Is Now Due')
-  end 
-  
+  end
+
   def successful_checkout_email(user, carrier, due_date)
     @user = user
     @first_name = user.full_name
