@@ -8,6 +8,21 @@ class CarriersController < ApplicationController
                 .with_attached_photos
                 .includes(:home_location)
                 .all
+
+    @filterrific = initialize_filterrific(
+        Carrier,
+        params[:filterrific],
+        default_filter_params: {},
+        select_options: {
+          with_current_location_id: Carrier.options_for_current_location_filter
+        }
+    ) or return
+    @carriers = @filterrific.find
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
