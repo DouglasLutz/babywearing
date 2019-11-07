@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 <% js = escape_javascript(
   render(partial: 'list', locals: { carriers: @carriers })
 ) %>
-console.log(js)
+
 $("#filterrific_results").html("<%= js %>");

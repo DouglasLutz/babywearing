@@ -12,9 +12,10 @@ class CarriersController < ApplicationController
     (@filterrific = initialize_filterrific(
       Carrier,
       params[:filterrific],
-      default_filter_params: {},
       select_options: {
-        with_current_location_id: Carrier.options_for_current_location_filter
+        with_category_id: Carrier.options_for_category_filter,
+        with_current_location_id: Carrier.options_for_current_location_filter,
+        with_status: Carrier.options_for_status_filter
       }
     )) || return
     @carriers = @filterrific.find
