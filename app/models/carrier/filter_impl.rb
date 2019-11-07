@@ -1,5 +1,4 @@
 module Carrier::FilterImpl
-  extend ActiveSupport::Concern
 
   def self.included(base)
     base.class_exec do
