@@ -5,6 +5,14 @@
 <h1>Carriers</h1>
 
 <%= form_for_filterrific @filterrific do |f| %>
+  <h5>Filters</h5>
+  <div>
+    Name
+    <%= f.text_field(
+            :search_name,
+            class: 'filterrific-periodically-observed'
+        ) %>
+  </div>
   <div>
     Location
     <%= f.select(

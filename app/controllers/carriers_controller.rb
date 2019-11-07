@@ -9,14 +9,14 @@ class CarriersController < ApplicationController
                 .includes(:home_location)
                 .all
 
-    @filterrific = initialize_filterrific(
-        Carrier,
-        params[:filterrific],
-        default_filter_params: {},
-        select_options: {
-          with_current_location_id: Carrier.options_for_current_location_filter
-        }
-    ) or return
+    (@filterrific = initialize_filterrific(
+      Carrier,
+      params[:filterrific],
+      default_filter_params: {},
+      select_options: {
+        with_current_location_id: Carrier.options_for_current_location_filter
+      }
+    )) || return
     @carriers = @filterrific.find
 
     respond_to do |format|
