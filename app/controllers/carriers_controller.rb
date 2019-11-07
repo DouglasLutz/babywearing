@@ -10,7 +10,7 @@ class CarriersController < ApplicationController
                 .all
 
     (@filterrific = initialize_filterrific(
-      Carrier,
+      Carrier.includes(:current_location, :category).with_attached_photos,
       params[:filterrific],
       select_options: {
         with_category_id: Carrier::FilterImpl.options_for_category_filter,

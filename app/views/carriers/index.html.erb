@@ -6,56 +6,10 @@
 <div class="card filter-card">
   <div class="card-header">Filters</div>
   <div class="card-body">
-    <%= form_for_filterrific @filterrific do |f| %>
-      <div class="row">
-        <div class="col">
-          <%= f.text_field(
-                  :search_name,
-                  class: 'filterrific-periodically-observed form-control',
-                  placeholder: "Name"
-          ) %>
-        </div>
-        <div class="col">
-          <%= f.text_field(
-                  :search_manufacturer,
-                  class: 'filterrific-periodically-observed form-control',
-                  placeholder: "Manufacturer"
-              ) %>
-        </div>
-        <div class="col">
-          <%= f.text_field(
-                  :search_model,
-                  class: 'filterrific-periodically-observed form-control',
-                  placeholder: "Model"
-              ) %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <%= f.select(
-                  :with_current_location_id,
-                  @filterrific.select_options[:with_current_location_id],
-                  { include_blank: '- Any Location -' },
-
-          ) %>
-          <%= f.select(
-                  :with_category_id,
-                  @filterrific.select_options[:with_category_id],
-                  { include_blank: '- Any Category -' },
-
-          ) %>
-          <%= f.select(
-                  :with_status,
-                  @filterrific.select_options[:with_status],
-                  { include_blank: '- Any Status -' },
-
-          ) %>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: 'filter_form', locals: { filterrific: @filterrific } %>
   </div>
 </div>
 <%= render(
         partial: 'list',
         locals: { carriers: @carriers }
-    ) %>
+) %>
