@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Carrier < ApplicationRecord
   include Carrier::FilterImpl
 
@@ -28,5 +29,4 @@ class Carrier < ApplicationRecord
       due_date: Date.today + default_loan_length_days.days
     }.merge(attributes))
   end
-
 end
