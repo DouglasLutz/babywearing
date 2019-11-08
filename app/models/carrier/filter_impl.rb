@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-module Carrier::FilterImpl
-  def self.included(base)
-    base.class_exec do
+class Carrier
+  module FilterImpl
+    extend ActiveSupport::Concern
+
+    included do
       scope :search_manufacturer, ->(query) { where("manufacturer ilike ?", "%#{query}%") }
       scope :search_model, ->(query) { where("model ilike ?", "%#{query}%") }
       scope :search_name, ->(query) { where("name ilike ?", "%#{query}%") }
@@ -18,19 +20,20 @@ module Carrier::FilterImpl
           :search_name,
           :search_manufacturer,
           :search_model
-        ])
+        ]
+      )
     end
-  end
 
-  def self.options_for_category_filter
-    Category.order(:name).map { |c| [c.name, c.id] }
-  end
+    def self.options_for_category_filter
+      Category.order(:name).map { |c| [c.name, c.id] }
+    end
 
-  def self.options_for_current_location_filter
-    Location.order(:name).map { |l| [l.name, l.id] }
-  end
+    def self.options_for_current_location_filter
+      Location.order(:name).map { |l| [l.name, l.id] }
+    end
 
-  def self.options_for_status_filter
-    Carrier.statuses.keys.sort.map(&:titleize)
+    def self.options_for_status_filter
+      Carrier.statuses.keys.sort.map(&:titleize)
+    end
   end
 end
