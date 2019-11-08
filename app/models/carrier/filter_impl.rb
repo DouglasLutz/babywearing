@@ -18,8 +18,7 @@ module Carrier::FilterImpl
           :search_name,
           :search_manufacturer,
           :search_model
-        ]
-      )
+        ])
     end
   end
 

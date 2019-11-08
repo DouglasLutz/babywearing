@@ -4,7 +4,7 @@ class CarriersController < ApplicationController
   before_action :set_carrier, only: [:show, :edit, :update]
 
   def index
-    @carriers = Carrier.with_attached_photos.includes(:home_location).all
+    @carriers = all_carriers
 
     (@filterrific = initialize_filterrific(
       Carrier.includes(:current_location, :category).with_attached_photos,
@@ -96,5 +96,9 @@ class CarriersController < ApplicationController
       :status,
       photos: []
     )
+  end
+
+  def all_cariers
+    Carrier.with_attached_photos.includes(:home_location).all
   end
 end
