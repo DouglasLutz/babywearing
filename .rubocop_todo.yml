@@ -12,14 +12,8 @@
 
 # Offense count: 70
 # Configuration parameters: IgnoreSharedExamples.
-RSpec/NamedSubject:
-  Exclude:
-    - 'spec/policies/fee_type_policy_spec.rb'
 
 # Offense count: 64
-RSpec/RepeatedDescription:
-  Exclude:
-    - 'spec/policies/fee_type_policy_spec.rb'
 
 # Offense count: 66
 RSpec/RepeatedExample:
