@@ -15,13 +15,11 @@
 RSpec/NamedSubject:
   Exclude:
     - 'spec/policies/fee_type_policy_spec.rb'
-    - 'spec/policies/location_policy_spec.rb'
 
 # Offense count: 64
 RSpec/RepeatedDescription:
   Exclude:
     - 'spec/policies/fee_type_policy_spec.rb'
-    - 'spec/policies/location_policy_spec.rb'
 
 # Offense count: 66
 RSpec/RepeatedExample:
